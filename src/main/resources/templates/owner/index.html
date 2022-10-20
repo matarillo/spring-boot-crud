@@ -1,0 +1,48 @@
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'Owners')}">
+
+<body>
+  <h1>Index</h1>
+
+  <p>
+    <a th:href="@{/owners/create}">Create New</a>
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          FirstName
+        </th>
+        <th>
+          LastName
+        </th>
+        <th>
+          Address
+        </th>
+        <th>
+          City
+        </th>
+        <th>
+          Telephone
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="owner : ${owners}">
+        <td th:text="${owner.firstName}" />
+        <td th:text="${owner.lastName}" />
+        <td th:text="${owner.address}" />
+        <td th:text="${owner.city}" />
+        <td th:text="${owner.telephone}" />
+        <td>
+          <a th:href="@{/owners/__${owner.id}__/edit}">Edit</a> |
+          <a th:href="@{/owners/__${owner.id}__}">Details</a> |
+          <a th:href="@{/owners/__${owner.id}__/delete}">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
