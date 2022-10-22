@@ -19,6 +19,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly 'com.azure:azure-identity-providers-jdbc-postgresql:1.0.0-beta.1'
 }
 
 bootRun {
