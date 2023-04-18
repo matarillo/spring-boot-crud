@@ -80,10 +80,10 @@ public class OwnerController {
     @PostMapping("/{ownerId}/edit")
     public String processUpdateOwnerForm(@PathVariable("ownerId") int ownerId, @Validated Owner owner,
             BindingResult result) {
+        owner.setId(ownerId);
         if (result.hasErrors()) {
             return "owner/edit";
         } else {
-            owner.setId(ownerId);
             repository.save(owner);
             return "redirect:/owners/" + owner.getId();
         }
